@@ -1,0 +1,5 @@
+gitops:
+  manifest_projects:
+  - id: "gitlab-examples/ops/kubernetes-agent-setup-with-ui"
+    paths:
+    - glob: '/**/*.{yaml,yml,json}'
