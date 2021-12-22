@@ -3,7 +3,7 @@ image: golang:alpine3.15
 install-dependencies:
   stage: build
   script:
-    - bash ci-cd/install-dependencies.sh
+    - sh ci-cd/install-dependencies.sh
 test-kubectl:
   stage: test
   script:
