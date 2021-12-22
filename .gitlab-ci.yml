@@ -1,4 +1,4 @@
-image: golang:alpine-3.15
+image: golang:alpine3.15
 
 build-job:
   stage: build
