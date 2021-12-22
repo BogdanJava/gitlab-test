@@ -1,13 +1,19 @@
-image: golang:alpine3.15
+image: debian:stable
+
+cache:
+  key: $CI_COMMIT_REF_SLUG
+  paths:
+  - .apt
+
+before_script:
+  - rm -f /etc/apt/apt.conf.d/docker-clean
+  - mkdir .apt && mkdir /var/cache/apt/archives && mount --bind .apt /var/cache/apt/archives/
+  - ci-cd/dependencies.sh install
 
 install-dependencies:
   stage: build
   script:
-    - sh ci-cd/install-dependencies.sh
-  artifacts:
-    paths:
-      - ~/.local/bin
-    expire_in: 1 day
+    - ci-cd/dependencies.sh versions
 test-kubectl:
   stage: test
   script:
