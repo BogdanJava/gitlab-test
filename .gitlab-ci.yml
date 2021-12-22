@@ -3,11 +3,10 @@ image: debian:stable
 cache:
   key: $CI_COMMIT_REF_SLUG
   paths:
-  - .apt
+  - /var/cache/apt/archives
 
 before_script:
   - rm -f /etc/apt/apt.conf.d/docker-clean
-  - mkdir .apt && mkdir /var/cache/apt/archives && mount --bind .apt /var/cache/apt/archives/
   - ci-cd/dependencies.sh install
 
 install-dependencies:
