@@ -1,11 +1,11 @@
 image: golang:alpine3.15
 
-build-job:
+install-dependencies:
   stage: build
   script:
-    - echo "Hello, $GITLAB_USER_LOGIN!"
+    - bash ci-cd/install-dependencies.sh
 test-kubectl:
   stage: test
   script:
     - echo "This job tests kubectl"
-    - "kubectl get pods"
+    - kubectl get pods
