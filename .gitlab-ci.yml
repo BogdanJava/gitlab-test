@@ -4,6 +4,10 @@ install-dependencies:
   stage: build
   script:
     - sh ci-cd/install-dependencies.sh
+  artifacts:
+    paths:
+      - ~/.local/bin
+    expire_in: 1 day
 test-kubectl:
   stage: test
   script:
