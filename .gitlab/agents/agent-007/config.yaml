@@ -1,0 +1,8 @@
+gitops:
+  manifest_projects:
+  - id: test-ci-cd-manifests
+    paths:
+    - glob: '/**/*.yaml'
+ci_access:
+  projects:
+  - id: test-ci-cd
